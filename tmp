@@ -1,0 +1,46 @@
+   Compiling no_std_tester v0.1.0 (/home/pscott/no_std_tester)
+warning: unused import: `core::llvm_asm`
+  --> /home/pscott/no_std_tester/src/lib.rs:54:5
+   |
+54 | use core::llvm_asm;
+   |     ^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` on by default
+
+warning: unreachable expression
+  --> /home/pscott/no_std_tester/src/lib.rs:87:9
+   |
+86 |           return;
+   |           ------ any code following this expression is unreachable
+87 | /         match res {
+88 | |             Ok(()) => {},// print!("\x1b[1;32m   ok   \x1b[0m"),
+89 | |             Err(()) => {
+90 | |                // fails += 1;
+91 | |                 // print!("\x1b[1;31m  fail  \x1b[0m")
+92 | |             }
+93 | |         }
+   | |_________^ unreachable expression
+   |
+   = note: `#[warn(unreachable_code)]` on by default
+
+warning: unused variable: `res`
+  --> /home/pscott/no_std_tester/src/lib.rs:85:13
+   |
+85 |         let res = f();
+   |             ^^^ help: if this is intentional, prefix it with an underscore: `_res`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+error: cannot use value of type `*const str` for inline assembly
+  --> /home/pscott/no_std_tester/src/lib.rs:63:21
+   |
+63 |             in(reg) buf,
+   |                     ^^^
+   |
+   = note: only integers, floats, SIMD vectors, pointers and function pointers can be used as arguments for inline assembly
+
+error: aborting due to previous error; 3 warnings emitted
+
+error: could not compile `no_std_tester`
+
+To learn more, run the command again with --verbose.

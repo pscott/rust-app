@@ -1,12 +1,24 @@
 [package]
-name = "rust-app"
+name = "app"
 version = "0.2.0"
 authors = ["yhql"]
 edition = "2018"
 
+[lib]
+name = "libapp"
+test = true
+
+[[bin]]
+name = "app"
+test = false
+
 [dependencies]
-nanos_sdk = { git = "https://github.com/LedgerHQ/ledger-nanos-sdk.git" } 
+nanos_sdk = { git = "https://github.com/LedgerHQ/ledger-nanos-sdk.git", branch = "io_rework" } 
 nanos_ui = { git = "https://github.com/LedgerHQ/ledger-nanos-ui.git" } 
+
+[dev-dependencies]
+no_std_tester = { path = "/home/pscott/no_std_tester"}
+testmacro = { path = "/home/pscott/testmacro"}
 
 [profile.dev]
 panic = "abort"
